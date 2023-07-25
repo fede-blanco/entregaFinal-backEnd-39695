@@ -1,0 +1,11 @@
+#updateProductQuantity
+components:
+  requestBodies:
+    addProdsToCartModel:
+      type: object
+      properties:
+        quantity:
+          type: number
+          decription: La cantidad de ese producto a agregar
+      example:
+        quantity: 30

@@ -1,0 +1,19 @@
+paths:
+  /carts/{cid}/purchase:
+    post:
+      summary: Purchase all the stock available products from the cart
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        description: path parameter takes the cart id
+        required: true
+        type: string
+      responses:
+        "201":
+          description: The cart with the products that couldn't be purchased or empty
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EmptyCart'         

@@ -1,0 +1,17 @@
+paths:
+  /products:
+    get:
+      summary: Gets every product available
+      tags:
+      # te indica en que seccion se integrara en la vista
+        - Products
+      responses:
+        "200":
+          description: Every product available.
+          content:
+            application/json:
+              # El schema indica que devolvera un objeto del tipo array con contendra items de tipo "referencia" al esquema de producto
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'

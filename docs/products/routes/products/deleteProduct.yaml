@@ -1,0 +1,22 @@
+paths:
+  /products/{id}:
+    delete:
+      summary: Deletes product whith given id
+      tags:
+        - Products
+        # A los productos que requieran id se le agrega "parameters", los cuales llevan su nombre y sus propiedades
+      parameters:
+      - name: id
+        in: path
+        description: path parameter takes the product id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: The deleted product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "404":
+          description: Product not found Error

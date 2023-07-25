@@ -1,0 +1,19 @@
+{"level":"error","message":"winstonLogger -- ERROR"}
+{"level":"fatal","message":"winstonLogger -- FATAL"}
+{"level":"error","message":"ERROR - 10:52:29"}
+{"level":"fatal","message":"FATAL - 10:52:29"}
+{"level":"error","message":"ERROR - 10:52:38"}
+{"level":"fatal","message":"FATAL - 10:52:38"}
+{"level":"error","message":"Error en addUser - UserManager.js --> TypeError: this.collection.create(...).lean is not a function"}
+{"level":"error","message":"Error en addCart - carts.service.js + Error: Error en addCart - carts.repository.js + Error: Error al realizar addCart - CartManager.js"}
+{"level":"error","message":"Error en addCart - carts.service.js + Error: Error en addCart - carts.repository.js + Error: Error al realizar addCart - CartManager.js"}
+{"level":"error","message":"Error en \"send\" de nodemailer -- email.service.js - 14:51:34 -- Error: No recipients defined"}
+{"level":"error","message":"Error en \"send\" de nodemailer -- email.service.js - 14:54:51 -- Error: No recipients defined"}
+{"level":"error","message":"Error: the product whith de id:64b68654e307982a9f9b1b07 do not exist in the array!!! -- userManager.js"}
+{"level":"error","message":"Error: the product whith de id:64b68654e307982a9f9b1b07 do not exist in the array!!! -- userManager.js"}
+{"level":"error","message":"Error: the product whith de id:64b68654e307982a9f9b1b07 do not exist in the array!!! -- userManager.js"}
+{"level":"error","message":"Error: the product whith de id:64b68654e307982a9f9b1b07 do not exist in the array!!! -- userManager.js"}
+{"level":"error","message":"Error: the product whith de id:64b8533353bc443e86257825 do not exist in the array!!! -- userManager.js"}
+{"level":"error","message":"Error: the product whith de id:64b8533353bc443e86257825 do not exist in the array!!! -- userManager.js"}
+{"level":"error","message":"Error en addTicket -- tickets.service.js ---> ReferenceError: addedTicket is not defined"}
+{"level":"error","message":"Error en addTicket -- tickets.service.js ---> ReferenceError: addedTicket is not defined"}

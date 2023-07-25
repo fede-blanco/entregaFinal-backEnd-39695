@@ -1,0 +1,15 @@
+#addProdsToCartModel
+components:
+  requestBodies:
+    addProdsToCartModel:
+      type: object
+      properties:
+        _id:
+          type: string
+          decription: El id del producto
+        quantity:
+          type: number
+          decription: La cantidad de ese producto a agregar
+      example:
+        _id: 5k2df2gh-5dr3-365n-t5u6-skger58sk23j
+        quantity: 30

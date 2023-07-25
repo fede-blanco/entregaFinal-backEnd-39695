@@ -1,0 +1,71 @@
+  <nav  class="site-nav">
+    <a href="http://localhost:8080/products" class="nav-link">Products</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/realtimeproducts" class="nav-link">Real time Products</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/chat" class="nav-link">Chat</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/current" class="nav-link">Info de Usuario</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/carts/{{cartSelectedId}}" class="nav-link">Carrito</a>
+  </nav>
+
+<div class="container">
+  <div class="forms">
+
+    <div class="cart-cart" id={{cartSelectedId}}>
+    <h2>Carrito</h2>
+    {{#if hayProductosCart}}
+    <div>
+            <ul id="cart-list" class="cart-list">
+            {{#each cartResponse.payload}}
+            <li id={{this.product._id}}>
+                <div>
+                <strong class="prod-title">
+                    {{this.product.title}}
+                    </strong>
+                    <br />
+                    <strong>Price</strong>: ${{this.product.price}}
+                    <br />
+                    <strong>Description</strong>: {{this.product.description}}
+                    <br />
+                    <strong>Category</strong>: {{this.product.category}}
+                    <br />
+                    <strong>Id</strong>:
+                    {{this.product._id}}
+                    <br />
+                    <strong>Quantity</strong>:
+                    {{this.quantity}}
+
+                </div>
+                <div class="delete-from-cart-btn-container">
+                <button 
+                id={{this.product._id}} 
+                class="cart-delete-from-cart-btn">Eliminar</button>
+                </div>
+                    </li>
+                <br />
+                {{/each}}
+            </ul>
+    </div>
+    <div class="purchase-button-container">
+        <button  
+            id={{cartSelectedId}} 
+            class="purchase-button">
+                Comprar Carrito
+        </button>
+    </div>
+
+    {{else}}
+        <h2>Carrito vacío</h2>
+    {{/if}}
+  </div>
+    </div>
+  </div>
+
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/cartview.js">
+<script src="/js/index.js">
+
+</script>

@@ -1,0 +1,27 @@
+paths:
+  /carts/{cid}:
+    put:
+      summary: Updates cart products
+      tags:
+        - Carts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/addProdsToCartModel'
+      parameters:
+      - name: cid
+        in: path
+        description: path parameter takes the cart id
+        required: true
+        type: string
+      responses:
+        "201":
+          description: new cart with updated products
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+        "404":
+          description: Not Found

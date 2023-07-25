@@ -1,0 +1,59 @@
+#Product
+components:
+  schemas:
+    Product:
+      type: object
+      required:
+        - id
+        - title
+        - description
+        - price
+        - code
+        - stock
+        - category
+        - status
+        - owner
+      properties:
+        id:
+          type: string
+          description: El id del producto.
+        title:
+          type: string
+          decription: El titulo del producto.
+        description:
+          type: string
+          decription: La descripción del producto.
+        price:
+          type: number
+          decription: El precio del producto.
+        code:
+          type: string
+          decription: El codigo del producto.
+        stock:
+          type: number
+          decription: El stock del producto.
+        category:
+          type: string
+          decription: La categoría del producto.
+        status:
+          type: boolen
+          decription: El estatus del producto.
+        owner:
+          type: string
+          decription: El dueño del producto.
+        thumbnails:
+          type: array
+          decription: array con las imagenes del producto.
+      example:
+        id: 4ughd7r3-365n-t5u6-sk85-h58sk23j5k2h
+        title: Producto numero 1
+        description: Esta es la descripcion del producto número 1
+        price: 2000
+        code: qwe123
+        stock: 20
+        category: home
+        status: true
+        owner: 5k2h4ugh-d7r3-365n-t5u6-sk85h58sk23j
+        thumbnails: []
+
+        

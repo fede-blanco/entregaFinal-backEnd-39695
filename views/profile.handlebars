@@ -1,0 +1,20 @@
+
+  <nav  class="site-nav" style="margin: 0 1rem">
+    <a href="http://localhost:8080/products" class="nav-link">Products</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/realtimeproducts" class="nav-link">Real time Products</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/chat" class="nav-link">Chat</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/current" class="nav-link">Info de Usuario</a>
+  </nav>
+
+<h1>{{pageTitle}}</h1>
+<div class="custom-form" style="color: #fff;">
+<p>Nombre: {{user.first_name}} {{user.last_name}}</p>
+<p>Id: {{user._id}}</p>
+<p>Email: {{user.email}}</p>
+<p>Edad: {{user.age}}</p>
+<button id="end-session-btn"  class="form-input input-submit">Cerrar Sesion</button>
+<script src="/js/profile.js"></script>
+</div>

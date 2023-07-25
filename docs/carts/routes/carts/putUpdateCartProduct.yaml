@@ -1,0 +1,32 @@
+paths:
+  /carts/{cid}/products/{pid}:
+    put:
+      summary: Update one product by id
+      tags:
+        - Carts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/updateProductQuantity'
+      parameters:
+      - name: cid
+        in: path
+        description: path parameter takes the cart id
+        required: true
+        type: string
+      - name: pid
+        in: path
+        description: path parameter takes the product id
+        required: true
+        type: string
+      responses:
+        "201":
+          description: The cart with the product quantity updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+        "404":
+          description: Not found

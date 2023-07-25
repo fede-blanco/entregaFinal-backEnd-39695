@@ -1,0 +1,52 @@
+#NewProduct
+components:
+  requestBodies:
+    NewProduct:
+      type: object
+      required:
+        - title
+        - description
+        - price
+        - code
+        - stock
+        - category
+        - status
+        - owner
+      properties:
+        title:
+          type: string
+          decription: El titulo del producto.
+        description:
+          type: string
+          decription: La descripción del producto.
+        price:
+          type: number
+          decription: El precio del producto.
+        code:
+          type: string
+          decription: El codigo del producto.
+        stock:
+          type: number
+          decription: El stock del producto.
+        category:
+          type: string
+          decription: La categoría del producto.
+        status:
+          type: boolen
+          decription: El estatus del producto.
+        owner:
+          type: string
+          decription: El dueño del producto.
+        thumbnails:
+          type: array
+          decription: array con las imagenes del producto.
+      example:
+        title: Producto numero 2 a crear
+        description: Esta es la descripcion del producto número 2
+        price: 3000
+        code: qwe456
+        stock: 30
+        category: garden
+        status: true
+        owner: 3d5h9thr-d7r3-365n-t5u6-cs24h58ey23j
+        thumbnails: []

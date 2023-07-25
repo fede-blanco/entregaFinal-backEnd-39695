@@ -1,0 +1,25 @@
+paths:
+  /carts/{id}:
+    get:
+      summary: Gets cart by id
+      tags:
+      # te indica en que seccion se integrara en la vista
+        - Carts
+      parameters:
+      - name: id
+        in: path
+        description: path parameter takes the product id
+        required: true
+        type: string
+      responses:
+        "200":
+          description: Cart obtained
+          content:
+            application/json:
+              # El schema indica que devolvera un objeto del tipo array con contendra items de tipo "referencia" al esquema de producto
+              schema:
+                type: object
+                items:
+                  $ref: '#/components/schemas/Cart'
+          "404":
+            description: Product not found Error

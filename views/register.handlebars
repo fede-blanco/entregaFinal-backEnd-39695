@@ -1,0 +1,33 @@
+<div class="section">
+  <div class="title-container">
+    <div class="lightbar"></div>
+    <div class="top-layer"></div>
+    <h1>{{pageTitle}}</h1>
+  </div>
+  <div class="form-container">
+    <form id="register_form" class="custom-form">
+
+      <label for="first_name" class="form-input">Nombre:
+        <input id="input_first_name" name="first_name" type="text" /></label>
+      <label for="last_name" class="form-input">Apellido:
+        <input id="input_last_name" name="last_name" type="text" /></label>
+      <label for="email" class="form-input">Email:
+        <input id="input_email" name="email" type="text" /></label>
+      <label for="age" class="form-input">Edad:
+        <input id="input_age" name="age" type="text" /></label>
+      <label for="password" class="form-input">Contraseña:
+        <input id="input_password" name="password" type="password" /></label>
+      <button type="submit" class="form-input input-submit">Registrarme</button>
+
+    </form>
+    <div>
+      <a href="/api/sessions/github">
+        <button class="form-input input-submit" style="width: auto;">Entrar con
+          Github</button>
+      </a>
+    </div>
+  </div>
+  <p style="color: #fff;">¿Ya estás registrado?
+    <a href="/login" style="color: #b8d56e;">Ingresa aquí</a></p>
+  <script src="/js/register.js"></script>
+</div>

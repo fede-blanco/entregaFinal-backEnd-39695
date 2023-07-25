@@ -1,0 +1,23 @@
+<div class="section">
+  <div class="title-container">
+    <div class="lightbar"></div>
+    <div class="top-layer"></div>
+    <h1>{{pageTitle}}</h1>
+  </div>
+<div class="form-container">
+<form id="login-form" class="custom-form">
+    <label for="email" class="form-input">Email : <input id="email" name="email"></label>  <br />
+    <label for="password" class="form-input">Contraseña: <input id="password" type="password" name="password"></label>
+    <button type="submit" class="form-input input-submit">Login</button>
+</form>
+<div>
+  <a href="/api/sessions/github" >
+    <button class="form-input input-submit" style="width: auto;">Entrar con Github</button>
+  </a>
+</div>
+<p style="color: #fff;">¿No estás registrado? <a href="/register" style="color: #b8d56e;">Regístrate aquí</a></p>
+<p style="color: #fff;">¿No te acuerdas tu contraseña? <a href="/resetPasswordMail" style="color: #b8d56e;">Reestablecer</a></p>
+</div>
+<script src="/js/login.js"></script>
+</div>
+

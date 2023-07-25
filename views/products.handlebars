@@ -1,0 +1,86 @@
+<div class="container">
+
+  <nav  class="site-nav" style="margin: 0 1rem">
+    <a href="http://localhost:8080/products" class="nav-link">Products</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/realtimeproducts" class="nav-link">Real time Products</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/chat" class="nav-link">Chat</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/current" class="nav-link">Info de Usuario</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/carts/{{cartSelectedId}}" class="nav-link">Carrito</a>
+  </nav>
+
+  <div class="title-container">
+    <div class="lightbar"></div>
+    <div class="top-layer"></div>
+    <h1>Productos</h1>
+  </div>
+  <div class="custom-form" style="color: #fff;">
+    <p>Bienvenido: {{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}}</p>
+    {{!-- <p>Edad: {{user.age}}</p> --}}
+    <p>Rol: {{user.role}}</p>
+    <input type="hidden" id="id-current-user" value={{user._id}} >
+    <button id="end-session-btn-products" class="form-input input-submit">Cerrar
+      Sesion</button>
+  </div>
+  <div class="forms">
+    <div>
+      <h2>Lista de productos disponibles</h2>
+      {{#if hayProductos}}
+      <div class="products-cart" id={{cartSelectedId}}></div>
+        <ul id="view-product-list" class="product-list">
+          {{#each response.payload}}
+            <li id={{this._id}}>
+              <div>
+                <strong class="prod-title">{{this.title}}</strong>
+                <br />
+                <strong>Price:</strong>
+                ${{this.price}}
+                <br />
+                <strong>Description:</strong>clear
+                {{this.description}}
+                <br />
+                <strong>Category:</strong>
+                {{this.category}}
+                <br />
+                <strong>Id:</strong>
+                {{this._id}}
+                <br />
+                <strong>Owner Id:</strong>
+                {{this.owner}}</div>
+              <div class="add-to-cart-btn-container">
+                <button id={{this._id}} class="products-add-to-cart-btn">
+                    Agregar al
+                  carrito
+                  </button>
+              </div>
+            </li>
+            <br />
+          {{/each}}
+        </ul>
+      {{/if}}
+      <div class="pagination">
+        {{#if response.hasPrevPage}}
+          <button class="next-prev-pagination-btn"><a
+              href={{response.prevLink}}
+            >Anterior</a></button>
+        {{/if}}
+        {{#if response.hasNextPage}}
+          <button class="next-prev-pagination-btn"><a
+              href={{response.nextLink}}
+            >Siguiente</a></button>
+        {{/if}}
+      </div>
+      <h2>Pagina: {{response.page}}</h2>
+    </div>
+  </div>
+
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/products.js"></script>
+<script src="/js/index.js"></script>
+{{! En "profile.js" esta la funcionalidad del boton de cerrar sesión }}
+<script src="/js/profile.js"></script>

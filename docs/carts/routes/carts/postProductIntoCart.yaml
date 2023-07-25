@@ -1,0 +1,26 @@
+paths:
+  /carts/{cid}/products/{pid}:
+    post:
+      summary: Add new product to cart
+      tags:
+        - Carts
+      parameters:
+      - name: cid
+        in: path
+        description: path parameter takes the cart id
+        required: true
+        type: string
+      - name: pid
+        in: path
+        description: path parameter takes the product id
+        required: true
+        type: string
+      responses:
+        "201":
+          description: tha cart with the created product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Cart'
+        "404":
+          description: Not found

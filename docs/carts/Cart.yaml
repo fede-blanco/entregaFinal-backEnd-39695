@@ -1,0 +1,23 @@
+#Cart
+components:
+  schemas:
+    Cart:
+      type: object
+      required:
+        - id
+        - products
+        - owner
+      properties:
+        id:
+          type: string
+          description: El id del carrito.
+        products:
+          type: array
+          decription: Array con los id's de los productos del carrito
+        owner:
+          type: string
+          decription: El dueño del carrito.
+      example:
+        id: 4ughd7r3-365n-t5u6-sk85-h58sk23j5k2h
+        products: ["4u8537r3-365n-t5u6-sk85-h58sk23dfk7s", "5k2df2gh-5dr3-365n-t5u6-skger58sk23j"]
+        owner: 5k2h4ugh-d7r3-365n-t5u6-sk85h58sk23j

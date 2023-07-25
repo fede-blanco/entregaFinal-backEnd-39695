@@ -1,0 +1,43 @@
+{
+  "type": "module",
+  "name": "entregable_clase_18_3",
+  "version": "1.0.0",
+  "description": "Entregable clase 18",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "node .",
+    "start:dev": "nodemon -e 'js,handlebars,html' .",
+    "test": "nodemon -e 'js,handlebars,html' test/test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "connect-mongo": "^5.0.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.4",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3",
+    "mongoose-paginate-v2": "^1.7.1",
+    "nodemailer": "^6.9.2",
+    "passport": "^0.6.0",
+    "passport-github2": "^0.1.12",
+    "passport-jwt": "^4.0.1",
+    "passport-local": "^1.0.0",
+    "socket.io": "^4.6.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3",
+    "uuid": "^9.0.0",
+    "winston": "^3.8.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.1",
+    "@types/express": "^4.17.17",
+    "@types/node": "^20.3.1",
+    "nodemon": "^2.0.22"
+  }
+}

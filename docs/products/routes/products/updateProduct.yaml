@@ -1,0 +1,28 @@
+paths:
+  /products/{id}:
+    put:
+      summary: updates product
+      tags:
+        - Products
+        # A los productos que requieran id se le agrega "parameters", los cuales llevan su nombre y sus propiedades
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/UpdateProductModel'
+      parameters:
+      - name: id
+        in: path
+        description: path parameter takes the product id
+        required: true
+        type: string
+      responses:
+        "201":
+          description: The Updated product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "404":
+          description: Product not found Error

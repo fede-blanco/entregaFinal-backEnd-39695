@@ -1,0 +1,22 @@
+paths:
+  /products:
+    post:
+      summary: Creates new product
+      tags:
+        - Products
+        # A los productos que requieran id se le agrega "parameters", los cuales llevan su nombre y sus propiedades
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/NewProduct'
+      responses:
+        "201":
+          description: The created product
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "404":
+          description: Product not found Error

@@ -1,0 +1,122 @@
+<div class="container">
+    
+  <nav  class="site-nav"  style="margin: 0 1rem">
+    <a href="http://localhost:8080/products" class="nav-link">Products</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/realtimeproducts" class="nav-link">Real time Products</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/chat" class="nav-link">Chat</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/current" class="nav-link">Info de Usuario</a>
+    <div class="nav-link-separator"></div>
+    <a href="http://localhost:8080/carts/{{cartSelectedId}}" class="nav-link">Carrito</a>
+  </nav>
+
+<h1>Productos</h1>
+  <div class="forms">
+<div class="forms-column-1">
+    <div id="add-form" class="custom-form">
+      <legend>Agregar un producto</legend>
+      <input type="text"  class="form-input" id="title-add" placeholder="Title">
+      <input type="text"  class="form-input" id="description-add" placeholder="Description">
+      <input type="number"  class="form-input" id="price-add" placeholder="Price">
+      <input type="file"  class="form-input" id="thumbnails-add" placeholder="Thumbnails">
+      <input type="text"  class="form-input" id="code-add" placeholder="Code">
+      <input type="number"  class="form-input" id="stock-add" placeholder="Stock">
+      <input type="text"  class="form-input" id="category-add" placeholder="Category">
+      <label for="status" class="form-input" >Status:<input type="checkbox" id="status-add" placeholder="Status"> </label>
+      <button id="btn-add" class="form-input input-submit">Agregar!</button>
+    </div>
+    <div id="update-form" class="custom-form">
+      <legend>Actualizar un producto</legend>
+      <input type="text"  class="form-input" id="id-update" placeholder="Id del producto a modificar">
+      <input type="text"  class="form-input" id="title-update" placeholder="Title">
+      <input type="text"  class="form-input" id="description-update" placeholder="Description">
+      <input type="number"  class="form-input" id="price-update" placeholder="Price">
+      <input type="file"  class="form-input" id="thumbnails-update" placeholder="Thumbnails">
+      <input type="text"  class="form-input" id="code-update" placeholder="Code">
+      <input type="number"  class="form-input" id="stock-update" placeholder="Stock">
+      <input type="text"  class="form-input" id="category-update" placeholder="Category">
+      <label for="status" class="form-input" >Status:<input type="checkbox" id="status-update" placeholder="Status"> </label>
+      <button id="btn-update" class="form-input input-submit">Modificar!</button>
+    </div>
+    <div id="delete-form" class="custom-form">
+      <legend>Eliminar un producto</legend>
+      <input type="text"  class="form-input" id="id-delete" placeholder="Id del producto a eliminar">
+      <input type="hidden" id="id-current-user" value={{currentUserId}} >
+      <button id="btn-delete" class="form-input input-submit">Eliminar!</button>
+    </div>
+
+</div>
+<div class="forms-column-2">
+  <div>
+    <h2>Lista de productos disponibles</h2>
+    {{#if hayProductos}}
+      <ul id="product-list" class="product-list">
+        {{#each response.payload}}
+          <li id={{this._id}}>
+            <div>
+            <strong class="prod-title">{{this.title}}</strong>
+            <br />
+            <strong>Price:</strong> ${{this.price}}
+            <br />
+            <strong>Description:</strong> {{this.description}}
+            <br />
+            <strong>Category:</strong> {{this.category}}
+            <br />
+            <strong>Id:</strong> {{this._id}}
+            <br />
+            <strong>Owner:</strong> {{this.owner}}
+            </div>
+            <div class="add-to-cart-btn-container">
+              <button id={{this._id}} class="add-to-cart-btn realtime-products-add-to-cart-btn">Agregar al carrito</button>
+            </div>
+            
+            </li>
+
+          <br />
+        {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+  <div class="cart realtime-products-cart" id={{cartSelectedId}}>
+    <h2>Carrito</h2>
+    {{#if hayProductosCart}}
+    <ul id="cart-list" class="cart-list">
+    {{#each cartResponse.payload}}
+      <li id={{this.product._id}}>
+        <div>
+        <strong class="prod-title">
+            {{this.product.title}}
+            </strong>
+            <br />
+            <strong>Price</strong>: ${{this.product.price}}
+            <br />
+            <strong>Description</strong>: {{this.product.description}}
+            <br />
+            <strong>Category</strong>: {{this.product.category}}
+            <br />
+            <strong>Id</strong>:
+            {{this.product._id}}
+            <br />
+            <strong>Quantity</strong>:
+            {{this.quantity}}
+
+        </div>
+        <div class="delete-from-cart-btn-container">
+          <button id={{this.product._id}} class="delete-from-cart-btn">Eliminar</button>
+        </div>
+            </li>
+          <br />
+          {{/each}}
+    </ul>
+    {{/if}}
+  </div>
+    </div>
+  </div>
+
+</div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js">
+
+</script>
