@@ -73,8 +73,7 @@ app.use(errorHandler)
 //agregamos "0.0.0.0" (hostname) a los puertos a escuchar para poder desplegarlo en un servicio externo desde cualquier ip
 const ConnectedServer = app.listen(PORT, "0.0.0.0", () => {
     winstonLogger.info(`conectado servidor Express en el puerto ${PORT}`)
-    console.log(`Conectado en el puerto ${PORT} --> http://localhost:${PORT}`)
-//   winstonLogger.warning(`WARNING!!!!`)
+    console.log(`Conectado en el puerto ${PORT}`)
 })
 
 //creamos el servidor de socket.io
