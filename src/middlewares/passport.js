@@ -8,6 +8,7 @@ import { Strategy as LocalStrategy} from 'passport-local'
 //Para mas orden y porque son datos sensibles, modularizamos y traemos las variables con los datos para la estrategia de github desde un archivo auth.config.js
 import { githubCallbackUrl, githubClientSecret, githubClienteId } from '../config/auth.config.js'
 import { User } from '../models/User.js'
+import { encriptarJWT, isValidHash } from '../utils.js'
 import { usersService } from '../services/users.service.js'
 
 // importas para JWT
@@ -77,22 +78,25 @@ export function autenticacionJwtAlreadyLogged(req, res, next) {
 
 // Estrategia de login local
 passport.use('local', new LocalStrategy({ usernameField: 'email', }, async ( username, password, done) => {
-  try {
-    // esto es lo que estaba en el controller de login
-    const user = await usersService.getUserByEmail(username)
-    if (!user){
-      return done(new AuthError())
+    try {
+      // esto es lo que estaba en el controller de login
+      const user = await usersService.getUserByEmail(username)
+      if (!user){
+        return done(new AuthError())
+      }
+      if (!isValidHash(password, user.password)) {
+        return done(new AuthError())
+      }
+  
+      
+      delete user.password
+      //Va a guardar el usuario en req.user pero no lo guardara en una session porque no las estamos utilizando
+      done(null, user)
+    } catch (error) {
+    //   console.log("************** Linea 43 passport.js ************");
+      done(error, null)
     }
-    if (!isValidHash(password, user.password)) {
-      return done(new AuthError())
-    }
-    delete user.password
-    //Va a guardar el usuario en req.user pero no lo guardara en una session porque no las estamos utilizando
-    done(null, user)
-  } catch (error) {
-    done(error, null)
-  }
-}))
+  }))
 
 //Estrategia de login mediante github
 passport.use('github', new GithubStrategy({
@@ -137,9 +141,10 @@ export const passportInitialize = passport.initialize()
 //Utilizan el passport.autenticate con la estrategia de github
 //"session: false" --> al venir por defecto en true le debo decir a las estrategias que no quiero usar session para que no ahga nada al respecto de la misma
 export const autenticacionUserPass = passport.authenticate('local', {
-  session:false, 
-  failWithError: true,
-   })
+    session:false, 
+    failWithError: true,
+    //  successRedirect: "/products" //--> no lo pongo por este medio porque lo hago en login.js
+     })
 export const autenticacionPorGithub = passport.authenticate('github', {
   session:false,
    failWithError: true,

@@ -15,7 +15,6 @@ if (loginForm instanceof HTMLFormElement) {
                 'Content-Type': 'application/json'
             }
         })
-        
         .then(response => {
           if (response.status === 201) {
             window.location.replace('/products')

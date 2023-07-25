@@ -2,7 +2,7 @@ import { usersService } from "../../services/users.service.js"
 import { encriptarJWT } from "../../utils.js"
 
 
-//Funcion que Controla la acción de la url (GET) "/api/sessions/login"
+//Funcion que Controla la acción de la url (POST) "/api/sessions/login"
 export async function loginController (req, res, next) {
 
     const properties = {
@@ -10,6 +10,9 @@ export async function loginController (req, res, next) {
     }
 
     const updatedUser = await usersService.updateUserById(req?.user._id, properties)
+
+    console.log(updatedUser);
+
       // Para no perder la info de ese usuario (al ya no guardarse en ninguna session en el servidor) se encripta y se envia en una cookie
       //Es importante que la guardemos con el mismo nombre (jwt_authorization) que despues la vamos a buscar
       res.cookie('jwt_authorization', encriptarJWT(req.user), {
